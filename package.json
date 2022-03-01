@@ -1,0 +1,22 @@
+{
+  "name": "swpk",
+  "version": "1.0.0",
+  "description": "**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/pawelk98/swpk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/pawelk98/swpk/issues"
+  },
+  "homepage": "https://bitbucket.org/pawelk98/swpk#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
