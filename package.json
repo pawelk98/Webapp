@@ -17,7 +17,8 @@
   },
   "homepage": "https://bitbucket.org/pawelk98/swpk#readme",
   "dependencies": {
-    "express": "^4.17.3",
-    "dialer": "https://bitbucket.org/pdombrowski/dialer.git"
+    "cors": "^2.8.5",
+    "dialer": "https://bitbucket.org/pdombrowski/dialer.git",
+    "express": "^4.17.3"
   }
 }
