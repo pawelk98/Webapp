@@ -36,8 +36,12 @@ app.get('/status', async (req, res) => {
    res.json({success: true, status: status});
 });
 
-app.post('/call', async (req, res) => {
+app.post('/call/', async (req, res) => {
    const body = req.body;
-   bridge = await Dialer.call(body.number1, body.number2);
+   const number1 = body.number;
+   const number2 = 572955470;
+   bridge = await Dialer.call(number1, number2);
    res.json({ success: true })
 });
+
+//515876002
