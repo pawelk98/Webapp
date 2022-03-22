@@ -19,7 +19,7 @@ export default defineComponent({
   }),
   methods: {
     async call() {
-      const responseStream = await fetch('https://3000-pawelk98-swpk-barr3vwhqc4.ws-eu34.gitpod.io/call', {
+      const responseStream = await fetch('https://3000-pawelk98-swpk-barr3vwhqc4.ws-eu38.gitpod.io/call', {
         method: 'POST',
         headers: { 'Content-type': 'application/json; charset=UTF-8' },
         body: JSON.stringify({ number: this.number }),
@@ -30,4 +30,4 @@ export default defineComponent({
   },
 })
 </script>
-Goto...
+
