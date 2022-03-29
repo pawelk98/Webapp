@@ -19,7 +19,7 @@ export default defineComponent({
   }),
   methods: {
     async call() {
-      const responseStream = await fetch('${config.api.url}${config.api.prefix}/call', {
+      const responseStream = await fetch(`${config.api.url}${config.api.prefix}/call`, {
         method: 'POST',
         headers: { 'Content-type': 'application/json; charset=UTF-8' },
         body: JSON.stringify({ number: this.number }),
