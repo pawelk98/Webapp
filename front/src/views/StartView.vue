@@ -8,10 +8,10 @@
     <div class="call-button" @click="call()">Zadzwoń teraz</div>
   </div>
 </template>
-Goto...
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import * as config from '../../../config'
 
 export default defineComponent({
   data: () => ({
@@ -19,7 +19,7 @@ export default defineComponent({
   }),
   methods: {
     async call() {
-      const responseStream = await fetch('https://3000-pawelk98-swpk-barr3vwhqc4.ws-eu38.gitpod.io/call', {
+      const responseStream = await fetch('${config.api.url}${config.api.prefix}/call', {
         method: 'POST',
         headers: { 'Content-type': 'application/json; charset=UTF-8' },
         body: JSON.stringify({ number: this.number }),

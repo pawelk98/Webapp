@@ -1,5 +1,6 @@
 import router from '../router'
 import io from 'socket.io-client'
+import * as config from '../../../config'
 
 type SocketIoType = ReturnType<typeof io>
 
@@ -27,10 +28,11 @@ class ViewManager implements IViewManager {
     }
   }
   checkStatus() {
-    this.socket = io('https://3000-pawelk98-swpk-barr3vwhqc4.ws-eu38.gitpod.io/', {
-        reconnection: false,
-        transports: ["websocket", "polling"]
-    });
+    this.socket = io(config.api.url, {
+      reconnection: false,
+      transports: ["websocket", "polling"],
+      path: config.api.prefix + '/socket'
+  });
     this.socket.on('status', (status) => {
         console.log(status)
         this.status = status
