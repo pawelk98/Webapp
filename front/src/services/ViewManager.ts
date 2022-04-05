@@ -32,7 +32,7 @@ class ViewManager implements IViewManager {
       reconnection: false,
       transports: ["websocket", "polling"],
       path: config.api.prefix + '/socket'
-  });
+    });
     this.socket.on('status', (status) => {
         console.log(status)
         this.status = status

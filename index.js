@@ -1,3 +1,4 @@
+}
 const config = require('./config');
 const express = require('express');
 const app = express();
@@ -6,12 +7,14 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const { Server } = require('socket.io');
 
+
+Dialer.configure(config.dialer);
+app.use(cors());
+app.use(bodyParser.json());
+
 const server = app.listen(3000, () => {
    console.log('app listening on port 3000');
 });
-
-Dialer.configure(config.dialer);
-
 const io = new Server(server, {
    path: config.api.prefix + '/socket'
 });
@@ -21,8 +24,6 @@ io.on("connection", (socket) => {
    io.emit("status", 5555);
 });
 
-app.use(cors());
-app.use(bodyParser.json());
 
 let bridge = null;
 
