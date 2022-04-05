@@ -10,6 +10,8 @@ const server = app.listen(3000, () => {
    console.log('app listening on port 3000');
 });
 
+Dialer.configure(config.dialer);
+
 const io = new Server(server, {
    path: config.api.prefix + '/socket'
 });
@@ -19,10 +21,8 @@ io.on("connection", (socket) => {
    io.emit("status", 5555);
 });
 
-Dialer.configure(config.dialer);  
 app.use(cors());
 app.use(bodyParser.json());
-
 
 let bridge = null;
 
