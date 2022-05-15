@@ -53,3 +53,7 @@
         name: express
         global: yes
       become: yes
+    - name: install dependencies back
+      npm:
+        ci: yes
+        path: "/var/www/webapp"
