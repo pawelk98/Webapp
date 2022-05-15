@@ -1,0 +1,55 @@
+---
+- name: Install web servers
+  hosts: "{{target}}" # ip s1
+  user: ubuntu
+  tasks:
+    - name: Add nodejs 16 repository
+      shell: "curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -"
+    - name: Install nodejs packages
+      become: yes
+      apt:
+        pkg:
+          - nodejs
+          - nginx
+        update_cache: yes
+        state: latest
+    - name: Create directories
+      file:
+        path: "/var/www/webapp"
+        state: directory
+        owner: 'ubuntu'
+        group: 'ubuntu'
+      become: yes
+    - name: Clone project
+      copy:
+        dest: /var/www/
+        src: ../../webapp
+    - name: Configure nginx
+      copy:
+        dest: /etc/nginx/nginx.conf
+        src: nginx.conf
+      become: yes
+    - name: Restart service nginx
+      service:
+        name: nginx
+        state: restarted
+      become: yes
+    
+    - name: install dependencies front
+      npm:
+        ci: yes
+        path: "/var/www/webapp/front"
+    - name: Build front
+      shell: "npm run build"
+      args:
+        chdir: "/var/www/webapp/front"
+    - name: Install PM2
+      npm:
+        name: pm2
+        global: yes
+      become: yes
+    - name: Install Express
+      npm:
+        name: express
+        global: yes
+      become: yes
