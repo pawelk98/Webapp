@@ -62,6 +62,3 @@ app.post(config.api.prefix + '/call', async (req, res) => {
 
    res.json({ success: true })
 });
-
-//515876002
-//730377686
