@@ -1,3 +1,5 @@
+Aplikacja webowa służąca do zestawiania połączeń telefonicznych  
+
 Instrukcja uruchomienia:
 
 1 Klonujemy repozytorium i umieszczamy w katalogu /var/www  
